@@ -12,6 +12,7 @@ import { Todo } from './todo/todo';
 export class AppComponent {
   
   todos: Todo[] = [];
+  newTodo: Todo = new Todo();
 
   constructor(
     private todoService: TodoService
