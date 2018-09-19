@@ -13,7 +13,15 @@ export class TodoListComponent {
   @Input()
   todos: Todo[];
 
+
+  @Output()
+  remove: EventEmitter<Todo> = new EventEmitter();
+
   constructor() {
+  }
+
+  onRemoveTodo(todo: Todo) {
+    this.remove.emit(todo);
   }
 
 }

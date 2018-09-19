@@ -25,17 +25,25 @@ export class ApiService {
       .catch(this.handleError);
   }
 
-  public getTodoById(todoId: number): Observable<any> {
+  public createTodo(todo): Observable<any> {
     return this.http
-      .get(API_URL + '/todos/' + todoId)
+      .post(API_URL + '/todo', todo)
       .map(response => {
-        return response.json();
+        return (response.json());
       })
       .catch(this.handleError);
   }
 
+  public deleteTodoById(todoId: string): Observable<any> {
+    return this.http
+      .delete(API_URL + '/todo/' + todoId)
+      .catch(this.handleError);
+  }
+
   private handleError (error: Response | any) {
+    console.log(error);
     console.error('ApiService::handleError', error);
     return Observable.throw(error);
   }
+
 }

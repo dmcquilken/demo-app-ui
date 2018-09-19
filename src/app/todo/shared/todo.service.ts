@@ -16,9 +16,12 @@ export class TodoService {
     return this.api.getAllTodos();
   }
 
-  // Simulate GET /todos/:id
-  getTodoById(todoId: number): Observable<Todo> {
-    return this.api.getTodoById(todoId);
+  addTodo(todo) {
+    return this.api.createTodo(todo);
+  }
+
+  deleteTodoById(todoId: string) {
+    return this.api.deleteTodoById(todoId);
   }
 
 }
